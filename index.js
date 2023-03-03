@@ -21,12 +21,11 @@ const tagsToReplace = {
     }
 };
 
-readline.question('Please specify the file to convert to HTML.', path => {
-    var fileProcessor = new FileProcessor(path);
-    var textProcessor = new MdTextProcessor(tagsToReplace);
+var path = 'data.txt';
 
-    var inputText = fileProcessor.readAllText();
-    var outputText = textProcessor.convertText(inputText);
-    fileProcessor.writeToFile(outputText);
-    readline.close();
-});
+var fileProcessor = new FileProcessor(path);
+var textProcessor = new MdTextProcessor(tagsToReplace);
+
+var inputText = fileProcessor.readAllText();
+var outputText = textProcessor.convertText(inputText);
+fileProcessor.writeToFile(outputText);
